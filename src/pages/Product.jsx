@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import { useDispatch } from "react-redux";
 import { addCart } from "../redux/action";
@@ -15,9 +15,15 @@ const Product = () => {
   const [loading2, setLoading2] = useState(false);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const addProduct = (product) => {
     dispatch(addCart(product));
+  };
+
+  const handleBuyNow = (product) => {
+    addProduct(product);
+    navigate('/payment');
   };
 
   useEffect(() => {
@@ -90,7 +96,13 @@ const Product = () => {
               >
                 Add to Cart
               </button>
-              <Link to="/cart" className="btn btn-dark mx-3">
+              <button
+                className="btn btn-dark ms-2 px-3 py-2"
+                onClick={() => handleBuyNow(product)}
+              >
+                Buy Now
+              </button>
+              <Link to="/cart" className="btn btn-dark ms-2 px-3 py-2">
                 Go to Cart
               </Link>
             </div>

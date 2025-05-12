@@ -155,6 +155,29 @@ const Cart = () => {
                 </div>
               </div>
             </div>
+            <div className="card shadow-2-strong mb-5 mb-lg-0" style={{ borderRadius: "16px" }}>
+              <div className="card-body p-4">
+                <div className="row">
+                  <div className="col-lg-12 col-xl-12">
+                    <div className="d-flex justify-content-between" style={{ fontWeight: "500" }}>
+                      <p className="mb-2">Subtotal</p>
+                      <p className="mb-2">${subtotal.toFixed(2)}</p>
+                    </div>
+                    <hr className="my-4" />
+                    <div className="d-flex justify-content-between mb-4" style={{ fontWeight: "500" }}>
+                      <p className="mb-2">Total</p>
+                      <p className="mb-2">${subtotal.toFixed(2)}</p>
+                    </div>
+                    <Link to="/payment" className="btn btn-primary btn-block btn-lg w-100">
+                      <div className="d-flex justify-content-between">
+                        <span>Proceed to Payment</span>
+                        <span>${subtotal.toFixed(2)}</span>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </>
